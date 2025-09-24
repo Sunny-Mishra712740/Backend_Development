@@ -1,0 +1,93 @@
+# MongoDB Commands
+
+If there is no data inside the new created database then the new created db will not appears in db lists.
+
+
+# Start MongoDB
+
+mongod // Start MongoDB server
+mongo // Open MongoDB shell (deprecated, use mongosh)
+mongosh // Open new MongoDB shell
+Database Commands
+show dbs // List all databases
+use myDatabase // Switch/create database
+db // Show current database
+db.dropDatabase() // Delete current database
+
+# Collection Commands
+
+show collections // List collections
+db.createCollection('users') // Create collection
+db.users.drop() // Delete collection
+Insert Documents
+db.users.insertOne({name:'Sunny', age:25}) // Insert single
+db.users.insertMany([{name:'Amit', age:30}, {name:'Ravi', age:28}]) // Insert multiple
+
+#Find / Query Documents
+
+db.users.find() // Find all
+db.users.find().pretty() // Formatted output
+db.users.findOne() // Find first document
+db.users.find({age:25}) // Find with condition
+db.users.find({age:{$gt:20}}) // Find age > 20
+db.users.find({age:{$lt:30}}) // Find age < 30
+db.users.find({age:{$gte:25,$lte:30}}) // Find age between 25-30
+db.users.find({$or:[{age:25},{name:'Ravi'}]}) // OR condition
+
+# Update Documents
+
+db.users.updateOne({name:'Sunny'}, {$set:{age:26}}) // Update one
+db.users.updateMany({age:{$gt:25}}, {$set:{status:'Active'}}) // Update many
+db.users.replaceOne({name:'Sunny'}, {name:'Sunny', age:27, city:'Delhi'}) // Replace document
+
+# Delete Documents
+
+db.users.deleteOne({name:'Amit'}) // Delete one
+db.users.deleteMany({age:{$lt:25}}) // Delete many
+
+# Count & Distinct
+
+db.users.countDocuments() // Count all documents
+db.users.countDocuments({age:25}) // Count with filter
+db.users.distinct('city') // Unique values of city
+db.users.distinct('city',{age:{$gt:25}}) // Unique with filter
+
+# Comparison Operators
+
+$eq // Equal → db.users.find({age: {$eq:25}})
+$ne // Not equal → db.users.find({age: {$ne:25}})
+$gt // Greater than → db.users.find({age: {$gt:25}})
+$gte // Greater than or equal → db.users.find({age: {$gte:25}})
+$lt // Less than → db.users.find({age: {$lt:30}})
+$lte // Less than or equal → db.users.find({age: {$lte:30}})
+Logical Operators
+$and // Both conditions true → db.users.find({$and:[{age:{$gt:20}}, {city:'Delhi'}]})
+
+# Logical Operators (contd.)
+
+$or // Either condition true → db.users.find({$or:[{age:25}, {city:'Delhi'}]})
+$not // Negates condition → db.users.find({age:{$not:{$gt:30}}})
+$nor // None true → db.users.find({$nor:[{age:25},{city:'Delhi'}]})
+
+# Indexes
+
+db.users.createIndex({name:1}) // Create ascending index
+db.users.createIndex({age:-1}) // Create descending index
+db.users.getIndexes() // Show indexes
+db.users.dropIndex('name_1') // Drop index
+
+# Aggregation
+
+db.users.aggregate([{ $match:{age:{$gte:25}}}, {$group:{_id:'$city', total:{$sum:1}}}, {$sort:{total:-1}}]) // Aggregate example
+User & Role Management
+
+# use admin // Switch to admin DB
+
+db.createUser({user:'admin', pwd:'password123', roles:['root']}) // Create admin user
+db.getUsers() // Show users
+db.dropUser('admin') // Drop user
+
+# Backup & Restore
+
+mongodump --db myDatabase --out backup/ // Backup database
+mongorestore backup/ // Restore database
