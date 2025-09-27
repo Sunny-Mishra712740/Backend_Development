@@ -1,0 +1,6 @@
+1. DOM (Document Object Model)
+   - Tree like representation of your HTML Document.
+   - Each Element from HTML Document is called as "node" in the DOM Tree.
+   - Collection of node is also called as DOM.
+   - The tree like structure is in the form of a hierarchy Model.
+   - It is a bridge between your HTML and javascript.
