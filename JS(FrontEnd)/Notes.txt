@@ -1,6 +1,12 @@
 1. DOM (Document Object Model)
    - Tree like representation of your HTML Document.
    - Each Element from HTML Document is called as "node" in the DOM Tree.
-   - Collection of node is also called as DOM.
+   - Collection of node is also called DOM.
    - The tree like structure is in the form of a hierarchy Model.
    - It is a bridge between your HTML and javascript.
+   - If we use JS to manipulate the style content then it will be a Inline Approach.
+
+2. Events
+   - These are triggers
+   - When a user triggers something on the page, Based on the trigger some action gets executed.
+   - 106+ Events are present.
