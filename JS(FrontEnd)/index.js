@@ -5,3 +5,7 @@ function abc() {
     document.body.style.backgroundColor = a
 }
 
+function mychange() {
+    console.log(document.getElementById("new").value)
+}
+

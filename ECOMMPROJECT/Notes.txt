@@ -1,0 +1,10 @@
+# Steps to Build Ecomm
+
+  1. Step 1 :- Authentication and Authorization with the help of access tokens.
+
+  2. Step 2 :- Define the Structure.
+               - 1. Router (auth)
+               - 2. Controller (All logical part)
+               - 3. Model (Talking to a database)
+
+  3. Step 3 :- Auth and it is done with the help of jwt tokens, bcryptjs, express, mongodb.

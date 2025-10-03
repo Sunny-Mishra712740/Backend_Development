@@ -1,9 +1,15 @@
- const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
- const userSchema = new mongoose.Schema({
+
+
+// user schema 1. name
+
+               
+const userSchema = new mongoose.Schema({
     name : {
         type : String,
-        required : true
+        required : true,
+
     },
     userId : {
         type : String,
@@ -17,6 +23,7 @@
     email : {
         type : String,
         required : true,
+        lowercase : true,
         minLength : 10,
         unique : true
     },
@@ -24,11 +31,10 @@
         type : String,
         required : true,
         default : "CUSTOMER",
-        enum : ["CUSTOMER", "ADMIN"]
+        enum : ["CUSTOMER", "ADMIN"]  // enum is anything which have fixed value
     }
- },{timestamps : true, versionKey : false})
- 
-    module.exports = mongoose.model("User", userSchema)
+
+},{timestamps : true,versionKey : false})
 
 
-    
+module.exports = mongoose.model("User", userSchema) // Create a Collection called as User
