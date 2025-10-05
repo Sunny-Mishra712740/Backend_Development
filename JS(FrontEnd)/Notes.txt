@@ -58,4 +58,16 @@
      - async and await
        - async - This will trigger a function asynchronously and it will return a promise.
        - await - This keyword is used to make the function wait. Until it receives a resolve from a promise it will wait.
+
+
+5. HTTP (Hypertext Transfer Portocol)
+   - Used to transfer data accross the web.
+   - Used in client server communication model.
+   - HTTP Response Codes
+     - 1xx - Informational Status Codes.
+     - 2xx - Successful.
+     - 3xx - Multiple Choice.
+     - 4xx - Client Error.
+     - 5xx - Server Error.
+
    

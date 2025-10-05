@@ -1,43 +1,32 @@
-// I need to write the controller / logic to register a user
-
 const bcrypt = require("bcryptjs");
+const { v4: uuidv4 } = require('uuid');
+const user_model = require("../models/user.model");
 
 exports.signup = async (req, res) => {
+    try {
+        const request_body = req.body;
 
-    // Logic to create the user
+        // Validate required fields
+        if (!request_body.name || !request_body.email || !request_body.password) {
+            return res.status(400).send({ message: "Name, email, and password are required" });
+        }
 
+        // Prepare user object
+        const userObj = {
+            name: request_body.name,
+            userId: request_body.userId || uuidv4(),
+            email: request_body.email,
+            userType: request_body.userType || "user",
+            password: bcrypt.hashSync(request_body.password, 8)
+        };
 
-    // 1. Read the request body
+        // Save to MongoDB
+        const user_created = await user_model.create(userObj);
 
-    const request_body = req.body
-
-    // 2. Insert the data in the Users collection in MongoDB
-
-    const userObj = {
-        name : request_body.name,
-        userId : request_body.userId,
-        email : request_body.email,
-        userType : request_body.userType,
-        password : bcrypt.hashSync(request_body.password, 8)
-
-    }
-
-     try {
-        
-        const user_created = await user_model.create(userObj)
-
-        //Return this user
-        res.status(201).send(user_created)
-
+        res.status(201).send(user_created);
 
     } catch (error) {
-        console.log("Error while registering the user", err)
-        res.status(500).send({
-            message : "Some error happened while registering a user"
-        })
+        console.error("Error while registering the user:", error);
+        res.status(500).send({ message: "Some error happened while registering a user" });
     }
-
-
-    // 3. Return the response back to the user
-
-}
+};
