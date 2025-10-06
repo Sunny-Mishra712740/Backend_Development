@@ -69,5 +69,27 @@
      - 3xx - Multiple Choice.
      - 4xx - Client Error.
      - 5xx - Server Error.
+   - HTTP vs HTTPS
+     - HTTPS (Hypertext Transfer Portocol Secure) is a secure version of HTTP protocol.
+     - It is encrypted using TLS and SSL.
+
+
+6. AJAX (Asynchronous JavaScript and XML)
+   - AJAX lets our web app send and receive data from the server asynchronously (in the background),
+     so that the user experience stays smooth.
+   - Technologies used in AJAX.
+     - HTML/CSS/JavaScript(for asynchronous call).
+     - XMLHttpRequest/fetch() :- To communicate with the server.
+     - JSON/ XML :- For sending and receiving data.
+     - DOM :- To update webpage dynamically without reloading.
+   - XMLHttpRequest vs fetch()
+     - Syntax
+       - verbose vs Simple Promise-based.
+     - Response handling
+       - Requires callbacks  vs Uses.then().
+     - Error handling
+       - Manual vs Built-in.
+     - Browser support
+       - Older vs Modern browsers
 
    

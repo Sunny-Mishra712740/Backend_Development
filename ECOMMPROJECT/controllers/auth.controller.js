@@ -23,7 +23,16 @@ exports.signup = async (req, res) => {
         // Save to MongoDB
         const user_created = await user_model.create(userObj);
 
-        res.status(201).send(user_created);
+        const res_obj = {
+            name : user_created.name,
+            userId : user_created.userId,
+            email : user_created.email,
+            userType : user_created.userType,
+            createdAt : user_created.createdAt,
+            updatedAt : user_created.updatedAt
+        }
+
+        res.status(201).send(res_obj);
 
     } catch (error) {
         console.error("Error while registering the user:", error);
