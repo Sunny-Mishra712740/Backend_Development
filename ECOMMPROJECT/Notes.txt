@@ -8,3 +8,17 @@
                - 3. Model (Talking to a database)
 
   3. Step 3 :- Auth and it is done with the help of jwt tokens, bcryptjs, express, mongodb.
+  4. Step 4 :- Technologies used.
+              - Express, Mongodb, bcryptjs, jsonwebtokens.
+
+  4. Step 5 : - 1. We created Node.js Project.
+                2. We created model user.model.js (To define schema)
+                3. We created admin user server.js
+                   - Created Server
+                   - Mongodb Connection
+                   - Created Admin user
+                4. We created auht controller (the logic for user signups)
+                5. We created auth routes to intercept the post call
+
+  5. Step 6 :- 1. We have created signin api
+                  
