@@ -1,6 +1,0 @@
-# Middlewares
-
-  1. It is a fuction or a peice of code that runs between req and res in a web application.
-  2. 
-
- 

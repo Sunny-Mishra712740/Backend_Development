@@ -12,14 +12,15 @@
 // Pre-increment
 
 // var i = 5;
-// console.log(i++);
+// console.log(++i);
 // console.log(i);
 
 
 // Post-increment
 
 // var i = 4;
-// console.log(++i);
+// console.log(i++);
+// console.log(i)
 
 
 // Relational Operator
